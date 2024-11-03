@@ -1,0 +1,46 @@
+# Data configurations
+data:
+  folder_path: "artificial_data"  # Path to training data
+  test_folder_path: "test_data"   # Path to test data
+  resize_size: [224, 224]         # Input image size
+  batch_size: 4
+
+# Model configurations  
+model:
+  name: "google/vit-base-patch16-224"
+  patch_size: 16
+  hidden_size: 768
+  num_attention_heads: 12
+  num_hidden_layers: 12
+
+# Training configurations
+training:
+  output_dir: "outputs/vit-finetuned"
+  training_args:
+    per_device_train_batch_size: 4
+    per_device_eval_batch_size: 4
+    evaluation_strategy: "steps"
+    num_train_epochs: 4
+    fp16: true
+    save_steps: 100
+    eval_steps: 100
+    logging_steps: 10
+    learning_rate: 0.0002  # Changed from 2e-4 to explicit float
+    weight_decay: 0.01     # Added weight decay
+    warmup_ratio: 0.1      # Added warmup ratio
+    save_total_limit: 2
+    remove_unused_columns: false
+    push_to_hub: false
+    report_to: "tensorboard"
+    load_best_model_at_end: true
+    metric_for_best_model: "accuracy"  # Added metric for best model
+    greater_is_better: true           # Added comparison direction
+
+# Visualization configurations
+visualization:
+  mosaic:
+    num_cols: 5
+    num_rows: 5
+  metrics:
+    plot_loss: true
+    plot_accuracy: true

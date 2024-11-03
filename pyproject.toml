@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "classify-anything"
+version = "0.1.0"
+description = ""
+authors = ["yanis112 <yanisyanis545@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.32.3"
+aiohttp = "^3.10.10"
+pillow = "^11.0.0"
+python-dotenv = "^1.0.1"
+transformers = {extras = ["torch"], version = "^4.46.1"}
+torch = "^2.5.1"
+numpy = "^2.1.2"
+torchvision = "^0.20.1"
+datasets = "^3.1.0"
+matplotlib = "^3.9.2"
+pyyaml = "^6.0.2"
+evaluate = "^0.4.3"
+accelerate = ">=0.26.0"
+tensorboard = "^2.18.0"
+scikit-learn = "^1.5.2"
+huggingface-hub = "^0.26.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

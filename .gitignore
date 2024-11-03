@@ -6,7 +6,15 @@ __pycache__/
 # C extensions
 *.so
 
+#data
+outputs/
+real_data/
+artificial_data/
+*.png
+vit-finetuned/
+
 # Distribution / packaging
+.env
 .Python
 build/
 develop-eggs/
